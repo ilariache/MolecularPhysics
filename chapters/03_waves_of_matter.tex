@@ -67,7 +67,8 @@ Physical laws can never be demonstrated, but only inferred from experiments and 
   Now:
 
   $$\hbar\omega = E \propto p^2$$
-
+  Recall that $\hbar$ is the Dirac's constant, obtained by the following formula: $\hbar=frac{h}{2\pi}$, where $h$ is the Planck's constant.
+  
   For a free electron, $H$ equals the kinetic energy and is approximately the Hamiltonian.
   For an interacting electron:
 
@@ -92,11 +93,15 @@ Physical laws can never be demonstrated, but only inferred from experiments and 
 
     $$i\hbar \frac{\partial {}}{\partial {t}}\psi(\vec{r},t) = \hat{H} \psi(\vec{r},t)$$
 
-    So to solve this equation there is a need to solve a partial differential equation that defines the state of a system.
+    To solve this equation there is a need to solve a partial differential equation that defines the state of a system.
     The operators are:
 
     $$\hat{H} = \biggl(-\frac{\hbar^2}{2m}\nabla^2+U(\vec{r})\biggr)$$
-
+    
+    $\hat{H}$ operates on the function $\psi$, giving as a result a new function $\psi'$.
+    Note that $$\hat{H}(a\psi_1(x,t)+b\psi_2(x,t)=a\hat{H}\psi_1+b\hat{H}\psi_2$$.
+    $\hat{H}$ is a linear operator, acting on a space of function (Hilbert space) and giving as a result a new function through a linear transformation. 
+    
     $$\nabla^2 = \biggl(\frac{\partial^2}{\partial x^2} +\frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\biggr)$$
 
 \section{Stationary Schr\"oedinger equation}
@@ -107,6 +112,7 @@ $$H(p,q, \bcancel{t}) = \frac{p^2}{2m}+U(q,\bcancel{t})$$
 Considering the plane wave:
 
 $$\psi(\vec{r}, t) = \phi(\vec{r}) e^{-i \frac{E}{\hbar}t}$$
+In this case, $\psi$ is factorized into two terms - which we can call $\phi$ and $\xi$.
 
 By formulating a guess for the form of the solution and plugging it into the Schr\"oedinger equation:
 
@@ -117,6 +123,7 @@ Which gives:
 $$\hat{H}\phi(\vec{r}) = E\phi(\vec{r})$$
 
 Where $E$ is unknown.
+
 This is an eigen problem: given $\hat{H}$, a function $\psi(\vec{r})$ has to be found such that $\hat{H}\psi(\vec{r})$ is a function proportional to $\psi(\vec{r})$ through some constant $E$.
 In other words, the energy of a quantum system is an eigenvalue of the quantum Hamiltonian operator.
 Energy quantization is obtained and:
