@@ -357,9 +357,10 @@ However, the constraints are different. Instead of the classical initial values 
     $$E_n = \frac{1}{2m}\biggl(\underbrace{\frac{\pi^2\hbar^2}{L_2}m^2}_{=p_m^2}\biggr)$$
 
     So the quantized momenta is $p_m = \pm \frac{\pi\hbar}{L}m$.
-
+    For each value of $v$ p=mv and Ep=p^2/2m, infititely many kinetic energies. In phase space we keep p0 constant, then reflection occurs to -p0, until a position oon the other wall is reached. Projections look like squares; if we start with a lower momentum, we are going to obtain a smaller rectangle. In principle we can choose any value for p, no restrictions. This is not what happens with quantum particles, where we only have some allowed $p_n=k_n\hbar$ momenta.
+    
     \subsubsection{Lowest energy state}
-    In classical mechanics, the lowest energy state is $p = 0\Rightarrow E = 0$.
+    In classical mechanics, the lowest energy state is $p = 0\Rightarrow E = 0$. 
     Differently, in quantum mechanics the lowest energy level is:
 
     $$E_1 = \frac{\hbar^2}{2m}\biggl(\frac{\pi}{L}\biggr)^2 > 0$$
@@ -387,14 +388,16 @@ However, the constraints are different. Instead of the classical initial values 
 
 \section{Two dimensional square well}
 Consider a quantum particle in a two dimensional square well with dimensions $L_1$ and $L_2$.
+%insert image%
 Then:
 
 $$\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial {^2}}{\partial {x^2}}-\frac{\hbar^2}{2m}\frac{\partial {^2}}{\partial {y^2}}$$
 
 Any $H$ can be separated as: $H(x,y) = H_1(x) + H_2(y)$.
-
+Anytime the Hamiltonian factorizes, i.e. $\hat{H}=\sum_i{\hat{h}_i}$, the solution of the SE can be written as the product of two wavefunctions $\phi(x,y)=phi_1(x)\phi_2(y)$. The corresponding energy will be obtained by summing the two energies $E=E_1+E_2$. By applying this property, we can write the solution to the Hamiltonian for our problem.
+  
   \subsection{Solution}
-  Then the solution is:
+  The solution is:
 
   $$\begin{cases}\phi(x,y) = \phi_1(x)\phi_2(y)\\H\phi=(E_1+E_2)\phi\end{cases}$$
 
