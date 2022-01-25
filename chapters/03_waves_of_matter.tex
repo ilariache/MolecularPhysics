@@ -346,7 +346,7 @@ However, the constraints are different. Instead of the classical initial values 
       \paragraph{Energy eigenstates}
       The energy eigenstates of the stationary wave-functions are:
 
-      $$\psi_m(x) = \begin{cases}A_1\cos k_1 x & n\ odd\\ A_2\sin k_2 x & n\ een\end{cases}$$
+      $$\psi_m(x) = \begin{cases}A_1\cos k_1 x & n\ odd\\ A_2\sin k_2 x & n\ even\end{cases}$$
       
 
   \subsection{Discussion}
@@ -414,19 +414,35 @@ Anytime the Hamiltonian factorizes, i.e. $\hat{H}=\sum_i{\hat{h}_i}$, the soluti
   So:
 
   $$\phi_{n,m}(x,y) = \underbrace{\phi_n(x)}_{\text{solution of the 1D problem}}\phi_m(y)$$
-
-  And $E_{n,m} = E_n^x+E_m^y = -\frac{\hbar^2}{2m}\pi^2\biggl(\frac{n^2}{L_x^2}+\frac{m^2}{L_y^2}\biggr)$.
+  Resulting in:
+  
+  $$\phi_n(x) = \begin{cases}\sqrt{\frac{2}{L_{x}}} \sin k_n x\\ \sqrt{\frac{2}{L_{x}}} \cos k_n x\end{cases}$$
+  $$\phi_m(x) = \begin{cases}\sqrt{\frac{2}{L_{y}}} \sin k_m y\\ \sqrt{\frac{2}{L_{y}}} \cos k_m y\end{cases}$$
+  
+  For $n=1$ and $m=1$:
+  
+  $$\psi_1 = \sqrt{\frac{2}{L_{x}}\frac{2}{L_{y}} \cos k_1^x x \cos k_1^y y}$$ 
+  $$k_1^x = \frac{\pi}{L_{x}} n = \frac{\pi}{L_{x}}$$
+  $$k_1^y = \frac{\pi}{L_{y}} m = \frac{\pi}{L_{y}}$$
+  
+  For $n=2$ and $m=1$:
+  $$\psi_2 = \sqrt{\frac{2 \cdot 2}{L_{x}L_{y}}} \sin k_2^x x \cos k_1^y y$$ 
+  
+  The total energy can be obtained as $E_{n,m} = E_n^x+E_m^y = -\frac{\hbar^2}{2m}\pi^2\biggl(\frac{n^2}{L_x^2}+\frac{m^2}{L_y^2}\biggr)$.
   Then the ground state is $E_{11} = E_1^x+E_1^y$ and the system is doubly degenerative in opposite directions:
 
   $$E_{12} + E_1^x+E_2^y + E_{21} = E_2^x+E_1^y$$
 
 \section{Lattice discretization}
 Lattice discretization is a technique by which a numerical solution is obtained by exploiting the connection between operators and matrices.
-A large but finite number of equally spaced possible position is used.
-The possible positions are $x = x_{\min} + \Delta x$, where $\Delta x = \frac{x_{\max}-x_{\min}}{N}$.
-The wave function is represented by a list $\psi(x) \rightarrow(\psi_1,\dots, \psi_N)$.
-Thus, the wave function becomes a vector and the Hamiltonian a matrix.
 
+ %insert image%
+We know that the wavefunction should be normlized and localized in a certain position of the space. By going towards the end and beginning of the x-axis, the function will go to zero - meaning that we have a maximum nd minimum after which the function value can be neglected. We can either stop at maximum/minimum point, and his would be a first approximation. Bu let us divide the axis into little dots, such that the function can be considered almost constant in each dot. We are going to obtain a very accurate step-wise representation of the function, we can proceed until the result is good enough i.e. when the lattice space is smaller than the scale at which the wavefunction changes. Though discretization, we can tune the number of dots required to obtain an accurate result.\\
+
+A large but finite number of equally spaced possible position is used. The possible positions are $x = x_{\min} + \Delta x$, where $\Delta x = \frac{x_{\max}-x_{\min}}{N}$. 
+After discretization, the wave function is represented by a list $\psi(x) \rightarrow(\psi_1,\dots, \psi_N)$.
+Thus, the wave function becomes a vector and the Hamiltonian a matrix.
+  
   \subsection{Discrete representation of the derivative}
 
   $$\frac{d{}}{d{x}}\psi(x) \rightarrow \frac{\psi_{i+1}-\psi_i}{\Delta x}$$
@@ -449,16 +465,18 @@ Thus, the wave function becomes a vector and the Hamiltonian a matrix.
 
   $$\sum\limits_{j}V_{ij}\psi_j = V_i\psi_i$$
 
-  Finally:
+  Finally, the matrix lattice representation is obtained as:
 
   $$H_{ij} = T_{ij} + V_{ij}$$
 
   $$H_{ij} = \begin{pmatrix}\frac{\hbar^2}{m\Delta x^2} + V_1 & -\frac{\hbar^2}{2m\Delta x} & 0 & \cdots\\ -\frac{\hbar^2}{2m\Delta x^2} & \frac{\hbar^2}{m\Delta x^2}+V_2-\frac{\hbar^2}{2m \Delta x^2} & 0 & \cdots\\ 0 & -\frac{\hbar^2}{2m\Delta x^2} & \frac{\hbar^2}{m\Delta x^2}+V_3 - \frac{\hbar^2}{2m\Delta x^2} & \cdots\end{pmatrix}$$
 
-  Solving the matrix eigenproblem $\sum\limits_i H_{ij}\psi_i = E_i\psi_i$ yields $\{E_i\}_{i=\{1,\dots,N\}}$ and $\{y_j\}_i$.
+  Solving the matrix eigenproblem $\sum\limits_i H_{ij}\psi_i = E_i\psi_i$ yields $\{E_i\}_{i=\{1,\dots,N\}}$ and $\{y_j\}_i$. 
   The dimensionality grows with the number of mesh points $N$.
   The exact case is $N\rightarrow\infty$.
   Quantum mechanics is described by an infinite dimensional vector space called the Hilbert space.
+
+  After discretization, changing from coordinate representation to momentum representation (and opposite), i.e. performing Fourier transformation, basically involves changing a basis in the vector space that describes the state of the system. Lattice discretization allows us to go from quantum mechanics mathematics to linear algebra.
 
 \section{Time evolution operators}
 Consider the time-dependent Schr\"oedinger equation:
