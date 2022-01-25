@@ -1,3 +1,4 @@
+\graphicspath{{chapters/02/}}
 \chapter{Breakdown of classical mechanics}
 
 \section{The fall of determinism}
@@ -8,23 +9,29 @@
  Consider a gun shooting particles through a screen with two holes and a detection screen behind the first one.
  
   \subsubsection{Case 1 - particles are macroscopic bullets}
+  
+  \begin{figure}[htbp!]
+	\centering
+	\includegraphics{gun_ds.png}
+\end{figure}
+
   The gun shoots macroscopic bullets. We imagine the distance gun-screen to be large, implying that the bullets might arrive at different locations due to error, vibrations, wind etc. Therefore, we expect bullets to arrive as a beam.
 
   Most of the bullets will not reach the second wall, as they will remain stuck on the first one. However, the ones directed towards the holes will pass through. We expect to obtain a distribution of bullets for hole 1 and hole 2. If we shut down one hole 2, nothing will pass through it - leading to $p_1$ distribution. Conversely, if we shut down hole 1 we will observe $p_2$.
   
-Summarizing, we will find the following observations:
-\begin{enumerate}
-    \item bullets arrive one-by-one, we can recognize the sound of each bullet impacting the screen (if sufficient resolution is available for the recording)
-    \item $P(z)$, the probability of a bullet reaching a point, can be obtained by plotting a histogram of the times a bullet has hit the point of interest. Through a statistical model we could then predict future locations. 
-     \item considering the experiment with one of the holes shut, a Gaussian like probability of detection $P_1$ can be seen such that $\mu$ is directly perpendicular to the hole.
-     \item ff both holes are open there is a ballistic behaviour and the resulting distribution of detection $P_{12}$ is the sum of the two deriving for each hole open by itself: $$P_{12} = P_1+P_2$$ (disjoint event).
-\end{enumerate}
+  Summarizing, we will find the following observations:
+  \begin{enumerate}
+      \item bullets arrive one-by-one, we can recognize the sound of each bullet impacting the screen (if sufficient resolution is available for the recording)
+      \item $P(z)$, the probability of a bullet reaching a point, can be obtained by plotting a histogram of the times a bullet has hit the point of interest. Through a statistical model we could then predict future locations. 
+       \item considering the experiment with one of the holes shut, a Gaussian like probability of detection $P_1$ can be seen such that $\mu$ is directly perpendicular to the hole.
+       \item ff both holes are open there is a ballistic behaviour and the resulting distribution of detection $P_{12}$ is the sum of the two deriving for each hole open by itself: $$P_{12} = P_1+P_2$$ (disjoint event).
+  \end{enumerate}
     
   
     \subsubsection{Case 2 - macroscopic waves in a tank}
     Suppose that rather than having a screen, we have a tank of water with a wall with two holes. In this case, we have an instrument producing waves e.g. something touching water. Since the source is very far, waves will reach the wall as it as plane waves. We want to measure whether the waves manage to impact the second wall. From each of the holes, we will observe circular waves. We can repeat the previous procedure of shutting each hole at a time. The maximum intensity (square of max amplitude) will be observed at the hole. 
 
-When the wave arrives, it reaches different locations at the same time (delocalization), very differently from bullets. A second difference is what we obtain when we let waves pass through both holes. It has alternating minima and maxima and it can be seen that $P_{12} \neq P_1+P_2$. In this case we obtain an interference pattern, as waves can sum and subtract in a non-trivial way (waves are complex objects).
+  When the wave arrives, it reaches different locations at the same time (delocalization), very differently from bullets.   A second difference is what we obtain when we let waves pass through both holes. It has alternating minima and maxima and it can be seen that $P_{12} \neq P_1+P_2$. In this case we obtain an interference pattern, as waves can sum and subtract in a non-trivial way (waves are complex objects).
     So, deriving from wave theory:
 
     $$A_1\rightarrow P_1 = |A_1|^2 = A_1^*A_1$$
@@ -40,7 +47,7 @@ When the wave arrives, it reaches different locations at the same time (delocali
     So a wave-like behaviour with de localization can be seen.
 
     \subsubsection{Case 3 - cathode as an electron gun}
-    Finally, let us have a cathode electron gun shooting electrons at a wall with very small holes - which need to be so small that the effect becomes      evident. As before, we close one of the holes and the screen will record the arrival of electrons on the wall through a detector (device producing a small signal as soon as an electron arrives). If we place many detectors on the wall, we will retrieve when and where the electron has arrived. The electron signals arrive one at a time, as a "rain". If we open both holes, an interference pattern will be observed: $P_tot$ is not the sum of the single probabilities, implying that the two are not disjoint events 
+    Finally, let us have a cathode electron gun shooting electrons at a wall with very small holes - which need to be so small that the effect becomes evident. As before, we close one of the holes and the screen will record the arrival of electrons on the wall through a detector (device producing a small signal as soon as an electron arrives). If we place many detectors on the wall, we will retrieve when and where the electron has arrived. The electron signals arrive one at a time, as a "rain". If we open both holes, an interference pattern will be observed: $P_tot$ is not the sum of the single probabilities, implying that the two are not disjoint events 
 Result: we observe either a particle-like behaviour (one hole closed) or a wave-like behaviour (both holes open).
     
    
